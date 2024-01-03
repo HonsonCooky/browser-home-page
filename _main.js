@@ -1,0 +1,1 @@
+(()=>{var e=new XMLHttpRequest;e.open("GET","../assets/edge.json"),e.onreadystatechange=function(){alert(e.responseText)},e.send()})();
