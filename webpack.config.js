@@ -1,10 +1,11 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  mode: "production",
-  entry: "./scripts/scripts.js",
+  mode: "development",
+  entry: "./scripts/index.js",
   output: {
-    filename: "main.js",
+    filename: "bundle.js",
     path: path.resolve(__dirname, "./scripts"),
   },
 };

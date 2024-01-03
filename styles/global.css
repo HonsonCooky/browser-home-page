@@ -28,8 +28,9 @@ body {
 }
 
 .card {
-  margin: 0 2vw 0 2vw;
-  border: 1vh solid var(--crust);
+  margin: 0 4vw;
+  border: 5px solid var(--crust);
+  border-radius: 1vh;
   background: var(--base);
   padding: 2vw;
 }
