@@ -1,0 +1,35 @@
+* {
+  color: var(--text);
+  font-family:
+    JetBrains Mono,
+    monospace;
+  word-wrap: break-word;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-image: var(--background-img);
+  background-size: 20vh;
+  background-attachment: fixed;
+  background-color: var(--base);
+  padding: 0;
+  min-height: 100vh;
+}
+
+.fill {
+  flex: 1;
+}
+
+.card {
+  margin: 0 2vw 0 2vw;
+  border: 1vh solid var(--crust);
+  background: var(--base);
+  padding: 2vw;
+}

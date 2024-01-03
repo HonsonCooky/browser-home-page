@@ -1,0 +1,19 @@
+#shortcuts {
+  display: flex;
+  position: sticky;
+  top: 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 2vw;
+  z-index: 10;
+  margin: 0;
+  background: var(--crust);
+  padding: 1vh 2vw 1vh 2vw;
+  height: 4vh;
+}
+
+#shortcuts>a {
+  color: var(--text);
+  font-size: 2vh;
+  text-decoration: none;
+}
