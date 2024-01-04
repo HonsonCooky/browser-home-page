@@ -9,14 +9,18 @@
 html {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  transition: 0s linear;
+  transition-property: background-position;
   margin: 0;
   background-image: var(--background-img);
-  background-size: 20vh;
+  background-position: 50% 0%;
+  background-size: 500px;
   background-attachment: fixed;
   background-color: var(--base);
   padding: 0;

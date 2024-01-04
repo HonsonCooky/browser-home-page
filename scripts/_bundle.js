@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   get_json: () => (/* binding */ get_json)\n/* harmony export */ });\n/* harmony import */ var _assets_edge_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/edge.json */ \"./assets/edge.json\");\n\nfunction get_json(filename) {\n  console.log(_assets_edge_json__WEBPACK_IMPORTED_MODULE_0__);\n}\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/file_reader.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   get_json: () => (/* binding */ get_json)\n/* harmony export */ });\n/* harmony import */ var _assets_edge_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/edge.json */ \"./assets/edge.json\");\n\n\nfunction get_json(filename) {\n  switch (filename) {\n    case \"edge\":\n      break;\n    default:\n      throw Error(\"Unknown JSON file\");\n  }\n}\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/file_reader.js?");
 
 /***/ }),
 
@@ -27,7 +27,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./theme_responder */ \"./scripts/theme_responder.js\");\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_theme_responder__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _file_reader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./file_reader */ \"./scripts/file_reader.js\");\n\n\n\n_file_reader__WEBPACK_IMPORTED_MODULE_1__.get_json(\"edge.json\");\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll_responder */ \"./scripts/scroll_responder.js\");\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scroll_responder__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./theme_responder */ \"./scripts/theme_responder.js\");\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_theme_responder__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _file_reader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./file_reader */ \"./scripts/file_reader.js\");\n\n\n\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/index.js?");
+
+/***/ }),
+
+/***/ "./scripts/scroll_responder.js":
+/*!*************************************!*\
+  !*** ./scripts/scroll_responder.js ***!
+  \*************************************/
+/***/ (() => {
+
+eval("window.onscroll = function() {\n  var cur_height = document.body.scrollTop;\n  console.log(cur_height);\n  document.body.style.backgroundPositionY =\n    \"-\" + Math.floor(cur_height / 4) + \"px\";\n};\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/scroll_responder.js?");
 
 /***/ }),
 
@@ -37,7 +47,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _the
   \************************************/
 /***/ (() => {
 
-eval("var matcher = window.matchMedia(\"(prefers-color-scheme: dark)\");\nvar lightSchemeIcon = document.querySelector(\"link#light-scheme-icon\");\nvar darkSchemeIcon = document.querySelector(\"link#dark-scheme-icon\");\nmatcher.addEventListener(\"change\", (event) => {\n  if (event.matches) {\n    lightSchemeIcon.remove();\n    document.head.append(darkSchemeIcon);\n  } else {\n    darkSchemeIcon.remove();\n    document.head.append(lightSchemeIcon);\n  }\n});\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/theme_responder.js?");
+eval("var matcher = window.matchMedia(\"(prefers-color-scheme: dark)\");\nvar lightSchemeIcon = document.querySelector(\"link#light-scheme-icon\");\nvar darkSchemeIcon = document.querySelector(\"link#dark-scheme-icon\");\nmatcher.matches ? to_dark_theme() : to_light_theme();\nmatcher.addEventListener(\"change\", (event) => {\n  event.matches ? to_dark_theme() : to_light_theme();\n});\n\nfunction to_light_theme() {\n  darkSchemeIcon.remove();\n  document.head.append(lightSchemeIcon);\n}\n\nfunction to_dark_theme() {\n  lightSchemeIcon.remove();\n  document.head.append(darkSchemeIcon);\n}\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/theme_responder.js?");
 
 /***/ }),
 

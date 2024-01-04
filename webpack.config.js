@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   entry: "./scripts/index.js",
   output: {
-    filename: "bundle.js",
+    filename: "_bundle.js",
     path: path.resolve(__dirname, "./scripts"),
   },
 };
