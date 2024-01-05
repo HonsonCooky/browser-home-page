@@ -1,9 +1,9 @@
 import vimium_json from "../assets/vimium.json";
 import edge_json from "../assets/edge.json";
 import firefox_json from "../assets/firefox.json";
-load_simple(vimium_json, document.getElementById("vimium-cheats"));
-load_simple(edge_json, document.getElementById("edge-cheats"));
-load_dynamic_multi(firefox_json, document.getElementById("firefox-cheats"));
+load_simple(vimium_json, document.getElementById("vimium-shortcuts"));
+load_simple(edge_json, document.getElementById("edge-shortcuts"));
+load_dynamic_multi(firefox_json, document.getElementById("firefox-shortcuts"));
 
 /**
  * Object Looks Like:

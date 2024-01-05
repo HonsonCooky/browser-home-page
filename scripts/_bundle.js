@@ -9,17 +9,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./scripts/cheats_loader.js":
-/*!**********************************!*\
-  !*** ./scripts/cheats_loader.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_vimium_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/vimium.json */ \"./assets/vimium.json\");\n/* harmony import */ var _assets_edge_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/edge.json */ \"./assets/edge.json\");\n/* harmony import */ var _assets_firefox_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/firefox.json */ \"./assets/firefox.json\");\n\n\n\nload_simple(_assets_vimium_json__WEBPACK_IMPORTED_MODULE_0__, document.getElementById(\"vimium-cheats\"));\nload_simple(_assets_edge_json__WEBPACK_IMPORTED_MODULE_1__, document.getElementById(\"edge-cheats\"));\nload_dynamic_multi(_assets_firefox_json__WEBPACK_IMPORTED_MODULE_2__, document.getElementById(\"firefox-cheats\"));\n\n/**\n * Object Looks Like:\n * {\n * \"shortcut\": \"description\",\n * \"shortcut\": \"description\",\n * ...\n * }\n */\nfunction load_simple(json, into) {\n  const html_components = [];\n  const entries = Object.entries(json).sort((a, b) => (a[0] < b[0] ? -1 : 1));\n\n  for (const [key, value] of entries) {\n    html_components.push(\n      `<tr><td><kbd>${key}</kbd></td><td>${value}</td></tr>`,\n    );\n  }\n\n  const values = html_components.join(\"\\n\");\n  into.innerHTML = `<table>\n    <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>\n    <tbody>${values}</tbody>\n    </table>`;\n}\n\n/**\n * Object Looks Like:\n * {\n * \"Context\": {\n * \"Action Description\": [\"Shortcut_1\", \"Shortcut_2\"],\n * ...\n * }\n *}\n */\nfunction load_dynamic_multi(json, into) {\n  const contexts = Object.keys(json).sort((a, b) => (a[0] < b[0] ? -1 : 1));\n\n  for (const context_key of contexts) {\n    const html_components = [];\n    const shortcuts = json[context_key];\n    const entries = Object.entries(shortcuts).sort((a, b) =>\n      a[0] < b[0] ? -1 : 1,\n    );\n\n    for (const [desc, value] of entries) {\n      const keys = value.map((key) => `<kbd>${key}</kbd>`).join(\" || \");\n      html_components.push(`<tr><td>${keys}</td><td>${desc}</td></tr>`);\n    }\n\n    const values = html_components.join(\"\\n\");\n    const header = document.createElement(\"h4\");\n    header.innerHTML = context_key;\n    const table = document.createElement(\"table\");\n    table.innerHTML = `\n      <thead><tr><th>Shortcuts</th><th>Action</th></tr></thead>\n      <tbody>${values}</tbody>\n    `;\n    into.appendChild(header);\n    into.appendChild(table);\n  }\n}\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/cheats_loader.js?");
-
-/***/ }),
-
 /***/ "./scripts/index.js":
 /*!**************************!*\
   !*** ./scripts/index.js ***!
@@ -27,7 +16,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ass
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll_responder */ \"./scripts/scroll_responder.js\");\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scroll_responder__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./theme_responder */ \"./scripts/theme_responder.js\");\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_theme_responder__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _cheats_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cheats_loader */ \"./scripts/cheats_loader.js\");\n\n\n\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll_responder */ \"./scripts/scroll_responder.js\");\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scroll_responder__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./theme_responder */ \"./scripts/theme_responder.js\");\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_theme_responder__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _shortcuts_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shortcuts_loader */ \"./scripts/shortcuts_loader.js\");\n\n\n\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/index.js?");
 
 /***/ }),
 
@@ -38,6 +27,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scr
 /***/ (() => {
 
 eval("window.onscroll = function() {\n  var cur_height = document.body.scrollTop;\n  document.body.style.backgroundPositionY =\n    \"-\" + Math.floor(cur_height / 4) + \"px\";\n};\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/scroll_responder.js?");
+
+/***/ }),
+
+/***/ "./scripts/shortcuts_loader.js":
+/*!*************************************!*\
+  !*** ./scripts/shortcuts_loader.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_vimium_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/vimium.json */ \"./assets/vimium.json\");\n/* harmony import */ var _assets_edge_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/edge.json */ \"./assets/edge.json\");\n/* harmony import */ var _assets_firefox_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/firefox.json */ \"./assets/firefox.json\");\n\n\n\nload_simple(_assets_vimium_json__WEBPACK_IMPORTED_MODULE_0__, document.getElementById(\"vimium-shortcuts\"));\nload_simple(_assets_edge_json__WEBPACK_IMPORTED_MODULE_1__, document.getElementById(\"edge-shortcuts\"));\nload_dynamic_multi(_assets_firefox_json__WEBPACK_IMPORTED_MODULE_2__, document.getElementById(\"firefox-shortcuts\"));\n\n/**\n * Object Looks Like:\n * {\n * \"shortcut\": \"description\",\n * \"shortcut\": \"description\",\n * ...\n * }\n */\nfunction load_simple(json, into) {\n  const html_components = [];\n  const entries = Object.entries(json).sort((a, b) => (a[0] < b[0] ? -1 : 1));\n\n  for (const [key, value] of entries) {\n    html_components.push(\n      `<tr><td><kbd>${key}</kbd></td><td>${value}</td></tr>`,\n    );\n  }\n\n  const values = html_components.join(\"\\n\");\n  into.innerHTML = `<table>\n    <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>\n    <tbody>${values}</tbody>\n    </table>`;\n}\n\n/**\n * Object Looks Like:\n * {\n * \"Context\": {\n * \"Action Description\": [\"Shortcut_1\", \"Shortcut_2\"],\n * ...\n * }\n *}\n */\nfunction load_dynamic_multi(json, into) {\n  const contexts = Object.keys(json).sort((a, b) => (a[0] < b[0] ? -1 : 1));\n\n  for (const context_key of contexts) {\n    const html_components = [];\n    const shortcuts = json[context_key];\n    const entries = Object.entries(shortcuts).sort((a, b) =>\n      a[0] < b[0] ? -1 : 1,\n    );\n\n    for (const [desc, value] of entries) {\n      const keys = value.map((key) => `<kbd>${key}</kbd>`).join(\" || \");\n      html_components.push(`<tr><td>${keys}</td><td>${desc}</td></tr>`);\n    }\n\n    const values = html_components.join(\"\\n\");\n    const header = document.createElement(\"h4\");\n    header.innerHTML = context_key;\n    const table = document.createElement(\"table\");\n    table.innerHTML = `\n      <thead><tr><th>Shortcuts</th><th>Action</th></tr></thead>\n      <tbody>${values}</tbody>\n    `;\n    into.appendChild(header);\n    into.appendChild(table);\n  }\n}\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/shortcuts_loader.js?");
 
 /***/ }),
 
