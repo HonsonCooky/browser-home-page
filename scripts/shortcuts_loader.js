@@ -25,11 +25,16 @@ function load_simple(json, into) {
     );
   }
 
+  const group = document.createElement("div");
+  group.classList.add("tbl-group");
+  const table = document.createElement("table");
   const values = html_components.join("\n");
-  into.innerHTML = `<table>
-    <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
-    <tbody>${values}</tbody>
-    </table>`;
+  table.innerHTML = `
+      <thead><tr><th>Shortcuts</th><th>Action</th></tr></thead>
+      <tbody>${values}</tbody>
+    `;
+  group.appendChild(table);
+  into.appendChild(group);
 }
 
 /**
@@ -42,8 +47,16 @@ function load_simple(json, into) {
  * }
  * }
  */
+
+function sort_contexts(json) {
+  return (a, b) => {
+    return Object.keys(json[a]).length - Object.keys(json[b]).length;
+  };
+}
+
 function load_complex(json, into) {
-  const contexts = Object.keys(json).sort((a, b) => (a[0] < b[0] ? -1 : 1));
+  const sorter = sort_contexts(json);
+  const contexts = Object.keys(json).sort(sorter);
 
   for (const context_key of contexts) {
     const html_components = [];
@@ -58,16 +71,19 @@ function load_complex(json, into) {
       );
     }
 
-    const values = html_components.join("\n");
+    const group = document.createElement("div");
+    group.classList.add("tbl-group");
     const header = document.createElement("h4");
     header.innerHTML = context_key;
     const table = document.createElement("table");
+    const values = html_components.join("\n");
     table.innerHTML = `
       <thead><tr><th>Shortcuts</th><th>Action</th></tr></thead>
       <tbody>${values}</tbody>
     `;
-    into.appendChild(header);
-    into.appendChild(table);
+    group.appendChild(header);
+    group.appendChild(table);
+    into.appendChild(group);
   }
 }
 
@@ -81,7 +97,8 @@ function load_complex(json, into) {
  *}
  */
 function load_dynamic_multi(json, into) {
-  const contexts = Object.keys(json).sort((a, b) => (a[0] < b[0] ? -1 : 1));
+  const sorter = sort_contexts(json);
+  const contexts = Object.keys(json).sort(sorter);
 
   for (const context_key of contexts) {
     const html_components = [];
@@ -95,15 +112,18 @@ function load_dynamic_multi(json, into) {
       html_components.push(`<tr><td>${keys}</td><td>${desc}</td></tr>`);
     }
 
-    const values = html_components.join("\n");
+    const group = document.createElement("div");
+    group.classList.add("tbl-group");
     const header = document.createElement("h4");
     header.innerHTML = context_key;
     const table = document.createElement("table");
+    const values = html_components.join("\n");
     table.innerHTML = `
       <thead><tr><th>Shortcuts</th><th>Action</th></tr></thead>
       <tbody>${values}</tbody>
     `;
-    into.appendChild(header);
-    into.appendChild(table);
+    group.appendChild(header);
+    group.appendChild(table);
+    into.appendChild(group);
   }
 }
