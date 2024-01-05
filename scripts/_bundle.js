@@ -16,7 +16,17 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll_responder */ \"./scripts/scroll_responder.js\");\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scroll_responder__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./theme_responder */ \"./scripts/theme_responder.js\");\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_theme_responder__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _shortcuts_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shortcuts_loader */ \"./scripts/shortcuts_loader.js\");\n\n\n\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll_responder */ \"./scripts/scroll_responder.js\");\n/* harmony import */ var _scroll_responder__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scroll_responder__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./theme_responder */ \"./scripts/theme_responder.js\");\n/* harmony import */ var _theme_responder__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_theme_responder__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _shortcuts_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shortcuts_loader */ \"./scripts/shortcuts_loader.js\");\n/* harmony import */ var _keyboard_inputs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./keyboard_inputs */ \"./scripts/keyboard_inputs.js\");\n/* harmony import */ var _keyboard_inputs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_keyboard_inputs__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/index.js?");
+
+/***/ }),
+
+/***/ "./scripts/keyboard_inputs.js":
+/*!************************************!*\
+  !*** ./scripts/keyboard_inputs.js ***!
+  \************************************/
+/***/ (() => {
+
+eval("const special_characters = [\"g\", \"s\", \"v\", \"b\", \"k\", \"t\", \"w\"];\n\ndocument.addEventListener(\"keydown\", function(event) {\n  var character = event.key.toLowerCase();\n  if (character === \"?\") {\n    toggle_quick_links();\n    return;\n  }\n  if (special_characters.includes(character)) {\n    special_character(character);\n  }\n});\n\nfunction special_character(character) {\n  toggle_quick_links(true);\n  var quick_links_children = document.getElementById(\"quick-links\").children;\n  var index = special_characters.indexOf(character);\n  quick_links_children[index].click();\n}\n\nfunction toggle_quick_links(hide) {\n  var quick_links = document.getElementById(\"quick-links\");\n  if (hide || quick_links.style.visibility === \"visible\") {\n    quick_links.style.visibility = \"hidden\";\n  } else {\n    quick_links.style.visibility = \"visible\";\n  }\n}\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/keyboard_inputs.js?");
 
 /***/ }),
 
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scr
   \*************************************/
 /***/ (() => {
 
-eval("window.onscroll = function() {\n  var cur_height = document.body.scrollTop;\n  document.body.style.backgroundPositionY =\n    \"-\" + Math.floor(cur_height / 4) + \"px\";\n};\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/scroll_responder.js?");
+eval("window.onscroll = function() {\n  var cur_height = document.body.scrollTop;\n  document.body.style.backgroundPositionY =\n    \"-\" + Math.floor(cur_height / 5) + \"px\";\n};\n\n\n//# sourceURL=webpack://browser-home-page/./scripts/scroll_responder.js?");
 
 /***/ }),
 

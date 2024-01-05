@@ -1,0 +1,16 @@
+#quick-links {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+  background: var(--base);
+}
+
+#quick-links>a {
+  color: var(--text);
+  font-size: 20px;
+  text-decoration: none;
+}
