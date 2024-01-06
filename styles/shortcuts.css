@@ -24,10 +24,6 @@
   flex-grow: 1;
   flex-direction: column;
   justify-content: center;
-  /* border: 0.8vh solid var(--crust); */
-  /* border-radius: 1vh; */
-  /* background: var(--surface0); */
-  /* padding: 1vh 1vw; */
 }
 
 .shortcuts>h2 {
@@ -57,22 +53,22 @@
   font-size: 2rem;
 }
 
-.tbls>*>table {
+.tbls>.tbl-group>table {
   border-collapse: collapse;
-  font-size: 20px;
+  font-size: 16px;
 }
 
-.tbls>*>table>thead>tr>th {
+.tbls>.tbl-group>table>thead>tr>th {
   background: var(--lavender);
   color: var(--crust);
   text-align: left;
 }
 
-.tbls>*>table :is(th, td) {
+.tbls>.tbl-group>table :is(th, td) {
   padding: 1vh 1vw;
 }
 
-.tbls>*>table>tbody>tr:nth-child(odd) {
+.tbls>.tbl-group>table>tbody>tr:nth-child(odd) {
   background: var(--surface0);
 }
 

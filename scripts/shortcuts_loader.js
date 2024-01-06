@@ -50,7 +50,11 @@ function load_simple(json, into) {
 
 function sort_contexts(json) {
   return (a, b) => {
-    return Object.keys(json[a]).length - Object.keys(json[b]).length;
+    let i = Object.keys(json[a]).length - Object.keys(json[b]).length;
+    if (i === 0) {
+      return a > b;
+    }
+    return i;
   };
 }
 
