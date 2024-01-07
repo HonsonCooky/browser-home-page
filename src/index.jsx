@@ -1,5 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./themes.css";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import QuickLinks from "./components/quicklinks";
+import Title from "./components/title";
+import ThemeListener from "./templates/theme_listener";
 
-ReactDOM.render(<h1>Hello World</h1>, document.getElementById("root"));
+function Main() {
+  return (
+    <ThemeListener>
+      <QuickLinks />
+      <Title />
+    </ThemeListener>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Main />);

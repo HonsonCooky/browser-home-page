@@ -6,6 +6,7 @@ module.exports = {
   entry: path.join(__dirname, "src", "index.jsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   module: {
     rules: [
@@ -38,4 +39,7 @@ module.exports = {
       template: path.join(__dirname, "src", "index.html"),
     }),
   ],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
 };

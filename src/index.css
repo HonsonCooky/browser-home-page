@@ -28,7 +28,7 @@
     --base: #eff1f5;
     --mantle: #e6e9ef;
     --crust: #dce0e8;
-    --background-img: url("../assets/bg-light.svg");
+    --background-img: url("../public/bg-light.svg");
   }
 }
 
@@ -60,7 +60,7 @@
     --base: #1e1e2e;
     --mantle: #181825;
     --crust: #11111b;
-    --background-img: url("../assets/bg-dark.svg");
+    --background-img: url("../public/bg-dark.svg");
   }
 }
 
@@ -71,6 +71,16 @@
     monospace;
 }
 
+html {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  margin: 0;
   background: var(--base);
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
