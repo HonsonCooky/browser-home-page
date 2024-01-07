@@ -8,7 +8,7 @@
     "ZQ": "Quit without checking changes"
   },
   "Navigating": {
-    "h j k l": "Arrow keys",
+    "h  j  k  l": "Arrow keys",
     "Ctrl + u / d": "Half-page up/down",
     "Ctrl + b / f": "Page up/down"
   },
@@ -122,7 +122,7 @@
     "p": "Paragraph",
     "w": "Word",
     "s": "Sentence",
-    "[ ( { <": "A [], (), or {} block",
+    "[  (  {  <": "A [], (), or {} block",
     "' \" `": "A quoted string",
     "b": "A block [(",
     "B": "A block in [{",
@@ -150,8 +150,8 @@
   },
   "Navigation": {
     "%": "Nearest/matching {[()]}",
-    "[( [{ [<": "Previous ( or { or <",
-    "]( ]{ ]<": "Next ( or { or <",
+    "[(  [{  [<": "Previous ( or { or <",
+    "](  ]{  ]<": "Next ( or { or <",
     "[m": "Previous method start",
     "[M": "Previous method end"
   },

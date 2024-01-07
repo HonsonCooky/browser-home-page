@@ -1,9 +1,13 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Browser Home Page",
   "version": "1.0.0",
   "description": "A custom browser home page / new tab page",
   "chrome_url_overrides": {
-    "newtab": "./src/index.html"
-  }
+    "newtab": "./dist/index.html"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
