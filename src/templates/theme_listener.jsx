@@ -41,6 +41,11 @@ export default function ThemeListener(props) {
     matcher.addEventListener("change", (event) => {
       event.matches ? to_dark_theme() : to_light_theme();
     });
+    window.onscroll = function() {
+      var cur_height = document.body.scrollTop;
+      document.body.style.backgroundPositionY =
+        "-" + Math.floor(cur_height / 5) + "px";
+    };
   }, []);
 
   return props.children;
