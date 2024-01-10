@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import QuickLinks from "./components/quicklinks";
 import Title from "./components/title";
-import ThemeListener from "./templates/theme_listener";
+import ThemeListener from "./components/theme_listener";
 
 function Main() {
   return (

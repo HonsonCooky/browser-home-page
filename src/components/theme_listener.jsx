@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import LightIcon from "../../public/icon_light.png";
 import DarkIcon from "../../public/icon_dark.png";
 
