@@ -90,6 +90,12 @@ body {
   background-attachment: fixed;
   background-color: var(--base);
   padding: 0;
-  min-width: 100vw;
+  width: 100vw;
   min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }

@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1vh 0 1vh 0;
+  border: 1vh solid var(--crust);
+  border-radius: 1vh;
+  background: var(--base);
+}
+
+.card > h1 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+  margin: 1vh 1vw;
+  background: var(--base);
+  padding: 0;
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.card > h2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+  margin: 1vh 1vw;
+  background: var(--base);
+  padding: 0;
+  font-weight: 200;
+  font-size: 2.5rem;
+}

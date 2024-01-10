@@ -35,14 +35,17 @@ function to_dark_theme() {
  * Theme Listener: A non UI wrapper that sets up theme swapping listners.
  */
 export default function ThemeListener(props) {
-  useEffect(function() {
+  useEffect(function () {
+    // Theme Matching
     var matcher = window.matchMedia("(prefers-color-scheme: dark)");
     matcher.matches ? to_dark_theme() : to_light_theme();
     matcher.addEventListener("change", (event) => {
       event.matches ? to_dark_theme() : to_light_theme();
     });
-    window.onscroll = function() {
-      var cur_height = document.body.scrollTop;
+
+    // Scroll Reaction
+    window.onscroll = function () {
+      var cur_height = window.scrollY;
       document.body.style.backgroundPositionY =
         "-" + Math.floor(cur_height / 5) + "px";
     };

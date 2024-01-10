@@ -15,8 +15,8 @@ function toggle_floating_card(id, hide) {
  * toggles visibility on `activate_char`
  */
 export default function FloatingCard({ id, activate_char, children }) {
-  useState(function() {
-    document.addEventListener("keydown", function(event) {
+  useState(function () {
+    document.addEventListener("keydown", function (event) {
       if (event.key === activate_char) toggle_floating_card(id);
       else toggle_floating_card(id, true);
     });

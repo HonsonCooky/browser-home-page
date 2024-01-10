@@ -19,7 +19,7 @@ function keyboard_input(event) {
  * takes you to said section.
  */
 export default function QuickLinks() {
-  useState(function() {
+  useState(function () {
     document.addEventListener("keydown", keyboard_input);
   }, []);
 
